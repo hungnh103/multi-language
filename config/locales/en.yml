@@ -1,0 +1,11 @@
+en:
+  table_no_data: "Not have data yet!"
+  table_index: "#"
+  table_created_at: "Created at"
+  table_action: ""
+  admin:
+    categories:
+      index:
+        manage_categories: "Manage Categories"
+        title: "Title"
+        description: "Description"

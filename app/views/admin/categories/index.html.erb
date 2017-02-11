@@ -1,0 +1,43 @@
+<% provide :title, t(".manage_categories") %>
+<h1 class="text-center"><%= t ".manage_categories" %></h1>
+
+<% unless @categories.present? %>
+  <%= t "table_no_data" %>
+<% end %>
+
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+      <td class="text-center"><%= t "table_index" %></td>
+      <td class="text-center"><%= t ".title" %></td>
+      <td class="text-center"><%= t ".description" %></td>
+      <td class="text-center"><%= t "table_created_at" %></td>
+      <td class="text-center"><%= t "table_action" %></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @categories.present? %>
+      <% @categories.each.with_index do |category, index| %>
+        <tr>
+          <td>
+            <% params[:page] ||= "1" %>
+            <%= get_index params[:page], index, Settings.admin.categories.per_page %>
+          </td>
+          <td><%= category.title %></td>
+          <td><%= category.description %></td>
+          <td><%= l category.created_at, format: :long %></td>
+          <td>
+            <%= link_to "#", class: "btn btn-warning btn-table" do %>
+              <i class="fa fa-1x fa-pencil-square-o" aria-hidden="true"></i>
+            <% end %>
+            <%= link_to "#", class: "btn btn-danger btn-table" do %>
+              <i class="fa fa-1x fa-trash" aria-hidden="true"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @categories, theme: "twitter-bootstrap-4", pagination_class: "pagination-sm" %>

@@ -1,0 +1,14 @@
+vi:
+  table_no_data: "Chưa có dữ liệu!"
+  table_index: "#"
+  table_created_at: "Tạo ngày"
+  table_action: ""
+  admin:
+    categories:
+      index:
+        manage_categories: "Quản lý danh mục"
+        title: "Tiêu đề"
+        description: "Mô tả"
+  time:
+    formats:
+      long: "%d/%m/%Y %H:%M"
